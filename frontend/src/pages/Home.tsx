@@ -16,7 +16,7 @@ interface Quiz {
 }
 
 function Home() {
-  const { isAuthenticated, user, logout } = useAuth();
+  const { isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
   const [quizzes, setQuizzes] = useState<Quiz[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -42,11 +42,6 @@ function Home() {
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const handleLogout = () => {
-    logout();
-    navigate('/');
   };
 
   const handleStartQuiz = (quizId: string) => {
